@@ -87,11 +87,83 @@ header {
     display: block;
 }
 
-/* Ajuste para Mobile (opcional) */
 @media (max-width: 768px) {
+    
+    /* 1. HEADER: Força logo e menu na mesma linha */
+    header {
+        flex-direction: row !important; /* Impede que fiquem um embaixo do outro */
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%; /* Menos espaço nas bordas */
+    }
+
+    .logo-container {
+        flex-shrink: 0; /* Impede a logo de amassar */
+    }
+    
     .logo-img {
-        height: 50px;
-        /* Um pouco menor em celulares */
+        height: 24px; /* Logo menor para caber */
+    }
+
+    nav ul {
+        gap: 10px; /* Menos espaço entre os links */
+        margin: 0;
+        padding: 0;
+    }
+
+    nav a {
+        font-size: 0.75rem; /* Letra menor */
+        white-space: nowrap; /* Impede quebra de linha no texto */
+    }
+    
+    /* Esconde o botão "Falar Agora" do menu se não couber, mantendo só os links */
+    .nav-cta {
+        display: none; 
+    }
+
+
+    /* 2. HERO: Ordem correta (Texto > Imagem > Botão) */
+    .hero {
+        display: flex; /* Muda de Grid para Flex */
+        flex-direction: column; /* Empilha um embaixo do outro */
+        padding: 40px 5%;
+        text-align: left;
+        gap: 30px;
+    }
+
+    /* Como mudamos o HTML, a ordem natural já será Texto > Imagem > Botão */
+    
+    .hero-text-group {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem; /* Título ajustado */
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Ajuste da Imagem no meio */
+    .hero-image {
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0; /* Espaço em cima e embaixo da imagem */
+    }
+
+    /* Botão no final */
+    .hero-btn-container {
+        width: 100%;
+        margin-top: 0;
+        justify-content: center; /* Centraliza botão no mobile */
+    }
+    
+    .btn-hero {
+        width: 100%; /* Botão largura total no celular fica ótimo */
+        text-align: center;
+        padding: 16px;
     }
 }
 
