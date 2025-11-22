@@ -676,73 +676,115 @@ footer {
 }
 
 
-/* --- RESPONSIVO (ATUALIZADO PARA CELULAR) --- */
+/* =========================================
+   MOBILE RESPONSIVO (CORRIGIDO)
+   ========================================= */
 @media (max-width: 768px) {
     
-    /* --- AJUSTE 1: Header Horizontal --- */
+    /* 1. HEADER: Força alinhamento horizontal e aumenta logo */
     header {
-        /* Mantém a direção 'row' (padrão) para ficarem lado a lado */
-        padding: 1rem 5%; /* Padding um pouco menor */
-        gap: 1rem; /* Menos espaço entre logo e menu */
+        display: flex;
+        flex-direction: row !important; /* Garante que fiquem lado a lado */
+        justify-content: space-between;
         align-items: center;
+        padding: 20px 5%;
+        width: 100%;
     }
 
-    /* Logo um pouco menor no celular */
-    .logo-img {
-        height: 32px; 
+    .logo-container {
+        flex-shrink: 0;
+        display: block;
     }
     
-    /* Ajustes no menu para caber na mesma linha */
+    /* AUMENTAR A LOGO AQUI */
+    .logo-img {
+        height: 45px !important; /* Aumentado para ficar visível */
+        width: auto;
+    }
+
+    /* CORREÇÃO DO MENU (Tirar bolinhas e cor azul) */
     nav ul {
-        gap: 0.8rem; /* Links mais próximos */
+        display: flex;
+        flex-direction: row !important; /* Força ficar na horizontal */
+        gap: 15px; /* Espaço entre os links */
+        margin: 0;
+        padding: 0;
+        list-style: none; /* Remove as bolinhas */
+    }
+
+    nav li {
+        margin: 0; /* Garante que não tenha margem extra */
     }
 
     nav a {
-        font-size: 0.8rem; /* Fonte ligeiramente menor */
+        font-size: 0.85rem; 
+        color: #cccccc !important; /* Remove o azul/roxo padrão */
+        text-decoration: none;
+        white-space: nowrap;
     }
-
-    /* Botão "Falar Agora" mais compacto */
+    
+    /* Esconde o botão "Falar Agora" do menu para não apertar */
     .nav-cta {
-        padding: 6px 12px;
-        font-size: 0.75rem;
-        white-space: nowrap; /* Impede que o texto quebre linha */
+        display: none; 
     }
 
-
-    /* --- AJUSTE 2: Imagem abaixo do Texto --- */
+    /* 2. HERO: Ajuste de Texto, Imagem e Botão */
     .hero {
-        /* Mantém o empilhamento vertical */
-        flex-direction: column; 
+        display: flex;
+        flex-direction: column; /* Empilha um embaixo do outro */
+        padding: 40px 5%;
         text-align: left;
-        padding: 40px 5% 20px; /* Reduzi o padding inferior */
+        gap: 30px;
     }
 
-    .hero-content {
-        /* O texto vem primeiro (ordem natural do HTML) */
-        /* Adiciona espaço entre o texto e a imagem que vem abaixo */
-        margin-bottom: 40px; 
-        width: 100%; /* Garante largura total */
+    .hero-text-group {
+        width: 100%;
+        margin-bottom: 0;
     }
     
     .hero h1 {
-        font-size: 2.5rem; /* Título um pouco menor para não quebrar tanto */
-    }
-
-    .hero-image {
-        /* REMOVIDO: order: -1; -> Isso faz a imagem voltar para baixo do texto */
-        width: 100%;
-        justify-content: center;
-        /* Removemos a margem inferior antiga */
-        margin-bottom: 0; 
-    }
-
-
-    /* --- Outros ajustes gerais para mobile (mantidos) --- */
-    .audience-section, .tech-section, .contact-section {
-        padding: 60px 5%;
+        font-size: 2.4rem;
+        line-height: 1.1;
     }
     
-    .audience-header h2, .contact-header h2 {
-        font-size: 1.8rem;
+    /* Imagem no meio */
+    .hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    
+    .hero-graph-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* CORREÇÃO DO BOTÃO (Estava sumindo o estilo) */
+    .hero-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Centraliza o botão */
+        margin-top: 10px;
+    }
+    
+    .btn-hero {
+        display: inline-block;
+        background-color: #222 !important; /* Força fundo escuro */
+        color: #ffffff !important; /* Força texto branco */
+        padding: 16px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid #333;
+        font-size: 1rem;
+        width: 100%; /* Botão ocupa largura total no celular */
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    
+    /* Ajustes gerais de espaçamento */
+    .audience-section, .tech-section, .contact-section {
+        padding: 60px 5%;
     }
 }
