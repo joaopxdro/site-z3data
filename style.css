@@ -708,7 +708,7 @@ footer {
         flex-direction: row !important; /* Força ficar na horizontal */
         gap: 15px; /* Espaço entre os links */
         margin: -10;
-        padding: -10;
+        padding: -20;
         list-style: none; /* Remove as bolinhas */
     }
 
