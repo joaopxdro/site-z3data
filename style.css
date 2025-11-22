@@ -90,7 +90,7 @@ header {
 /* Ajuste para Mobile (opcional) */
 @media (max-width: 768px) {
     .logo-img {
-        height: 35px;
+        height: 50px;
         /* Um pouco menor em celulares */
     }
 }
