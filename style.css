@@ -635,36 +635,73 @@ footer {
 }
 
 
-/* --- RESPONSIVO --- */
+/* --- RESPONSIVO (ATUALIZADO PARA CELULAR) --- */
 @media (max-width: 768px) {
+    
+    /* --- AJUSTE 1: Header Horizontal --- */
     header {
-        padding: 1.5rem 5%;
-        flex-direction: column;
-        gap: 1.5rem;
+        /* Mantém a direção 'row' (padrão) para ficarem lado a lado */
+        padding: 1rem 5%; /* Padding um pouco menor */
+        gap: 1rem; /* Menos espaço entre logo e menu */
+        align-items: center;
     }
 
+    /* Logo um pouco menor no celular */
+    .logo-img {
+        height: 32px; 
+    }
+    
+    /* Ajustes no menu para caber na mesma linha */
     nav ul {
-        gap: 1.5rem;
+        gap: 0.8rem; /* Links mais próximos */
     }
 
+    nav a {
+        font-size: 0.8rem; /* Fonte ligeiramente menor */
+    }
+
+    /* Botão "Falar Agora" mais compacto */
+    .nav-cta {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        white-space: nowrap; /* Impede que o texto quebre linha */
+    }
+
+
+    /* --- AJUSTE 2: Imagem abaixo do Texto --- */
     .hero {
-        padding: 40px 5%;
+        /* Mantém o empilhamento vertical */
+        flex-direction: column; 
         text-align: left;
+        padding: 40px 5% 20px; /* Reduzi o padding inferior */
     }
 
+    .hero-content {
+        /* O texto vem primeiro (ordem natural do HTML) */
+        /* Adiciona espaço entre o texto e a imagem que vem abaixo */
+        margin-bottom: 40px; 
+        width: 100%; /* Garante largura total */
+    }
+    
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem; /* Título um pouco menor para não quebrar tanto */
     }
 
     .hero-image {
-        order: -1;
-        /* Imagem vai pra cima no mobile */
-        margin-bottom: 30px;
+        /* REMOVIDO: order: -1; -> Isso faz a imagem voltar para baixo do texto */
+        width: 100%;
+        justify-content: center;
+        /* Removemos a margem inferior antiga */
+        margin-bottom: 0; 
     }
 
-    .audience-section,
-    .tech-section,
-    .contact-section {
+
+    /* --- Outros ajustes gerais para mobile (mantidos) --- */
+    .audience-section, .tech-section, .contact-section {
         padding: 60px 5%;
+    }
+    
+    .audience-header h2, .contact-header h2 {
+        font-size: 1.8rem;
     }
 }
