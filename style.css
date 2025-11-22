@@ -698,7 +698,7 @@ footer {
     
     /* AUMENTAR A LOGO AQUI */
     .logo-img {
-        height: 70px !important; /* Aumentado para ficar visível */
+        height: 60px !important; /* Aumentado para ficar visível */
         width: auto;
     }
 
@@ -707,7 +707,7 @@ footer {
         display: flex;
         flex-direction: row !important; /* Força ficar na horizontal */
         gap: 15px; /* Espaço entre os links */
-        margin: 0;
+        margin: -10;
         padding: -10;
         list-style: none; /* Remove as bolinhas */
     }
