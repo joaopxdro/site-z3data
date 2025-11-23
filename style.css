@@ -907,13 +907,6 @@ footer {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
 
-    /* --- ESPAÇAMENTO GERAL DAS SEÇÕES --- */
-    .audience-section,
-    .tech-section,
-    .contact-section {
-        padding: 60px 5%;
-    }
-
     .audience-header h2 {
         font-size: 2rem;
     }
@@ -932,14 +925,6 @@ footer {
     
     header {
         padding: 15px 5%;
-    }
-
-    .header-pill {
-        /* O segredo: permite quebrar os itens para a linha de baixo */
-        flex-wrap: wrap; 
-        border-radius: 25px; /* Cantos um pouco menos redondos */
-        padding: 15px 20px;
-        gap: 15px;
     }
 
     /* 1. Logo e Botão na mesma linha */
