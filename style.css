@@ -834,88 +834,56 @@ footer {
 }
 
 /* =========================================
-   MOBILE RESPONSIVO (CORREÇÃO DA PÍLULA)
+   MOBILE RESPONSIVO (LAYOUT HÍBRIDO)
    ========================================= */
 @media (max-width: 768px) {
     
-    /* 1. HEADER: Ajuste do espaçamento externo */
     header {
-        padding: 15px 5%; /* Margem menor nas laterais */
-        display: flex;
-        justify-content: center;
+        padding: 15px 5%;
     }
 
-    /* 2. A PÍLULA: Transforma em um bloco adaptável */
     .header-pill {
-        flex-direction: column; /* Coloca a Logo em cima e o Menu embaixo */
-        width: 100%; /* Ocupa toda a largura da tela */
-        max-width: 100%;
-        padding: 15px 10px; /* Espaçamento interno */
-        gap: 15px; /* Espaço entre a logo e os links */
-        border-radius: 20px; /* Cantos arredondados mais suaves */
-        background-color: rgba(10, 10, 10, 0.95); /* Fundo mais sólido para leitura */
+        /* O segredo: permite quebrar os itens para a linha de baixo */
+        flex-wrap: wrap; 
+        border-radius: 25px; /* Cantos um pouco menos redondos */
+        padding: 15px 20px;
+        gap: 15px;
     }
 
-    /* 3. LOGO */
-    .logo-img-pill {
-        height: 30px; /* Tamanho ajustado para mobile */
-        margin: 0 auto; /* Centraliza a logo */
+    /* 1. Logo e Botão na mesma linha */
+    .logo-link {
+        order: 1; /* Primeiro item */
+        flex-grow: 1; /* Empurra o botão para o canto */
+    }
+    
+    .header-btn {
+        order: 2; /* Segundo item (topo direita) */
+        padding: 6px 15px; /* Botão um pouco menor */
+        font-size: 0.8rem;
     }
 
-    /* 4. MENU (Links) */
+    /* 2. Menu na linha de baixo */
+    nav {
+        order: 3; /* Terceiro item (linha nova) */
+        width: 100%; /* Ocupa a linha inteira */
+        
+        /* Linha separadora sutil */
+        border-top: 1px solid #222;
+        padding-top: 15px;
+        margin-top: 5px;
+    }
+
     nav ul {
-        display: flex;
-        flex-wrap: wrap; /* Permite que os links quebrem de linha se necessário */
         justify-content: center; /* Centraliza os links */
-        gap: 15px; /* Espaço entre cada palavra */
+        gap: 20px;
     }
 
-    nav li {
-        margin: 0;
+    .logo-img-pill {
+        height: 20px; /* Logo ajustada */
     }
-
-    nav a {
-        font-size: 0.85rem; /* Tamanho de fonte confortável */
-        color: #cccccc;
-        padding: 5px;
-    }
-
-    /* --- OUTROS AJUSTES DO SITE (HERO, ETC) --- */
+    
+    /* Ajuste da Hero para não ficar colada no menu maior */
     .hero {
-        flex-direction: column;
-        padding: 120px 5% 40px; /* Mais espaço no topo por causa do menu maior */
-        gap: 30px;
-        text-align: left;
-    }
-
-    .hero-image {
-        width: 100%;
-        justify-content: center;
-        order: 2; /* Garante que fique no meio */
-    }
-    
-    .hero-text-group {
-        order: 1; /* Texto primeiro */
-    }
-
-    .hero-btn-container {
-        order: 3; /* Botão por último */
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .btn-hero {
-        width: 100%;
-        text-align: center;
-    }
-
-    .audience-section, .tech-section, .contact-section {
-        padding: 60px 5%;
-    }
-    
-    /* Ajuste para a barra verde do topo não ficar escondida */
-    body {
-        padding-top: 0; 
+        padding-top: 40px;
     }
 }
