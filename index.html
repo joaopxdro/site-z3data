@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z3 Data - Data & AI</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,13 +14,16 @@
 
     <div class="green-glow"></div>
 
-    <div class="top-bar">
-        <div class="top-bar-content">
-            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
-            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
-            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
-            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
-            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
+    <div class="ticker-wrapper">
+        <div class="ticker-track">
+            <div class="ticker-content">
+                Business Intelligence | Predictive Analytics | AI Automation | Data Driven | Machine Learning
+                &nbsp;|&nbsp;
+            </div>
+            <div class="ticker-content">
+                Business Intelligence | Predictive Analytics | AI Automation | Data Driven | Machine Learning
+                &nbsp;|&nbsp;
+            </div>
         </div>
     </div>
 
@@ -27,34 +31,26 @@
         <a href="#" class="logo-container">
             <img src="assets/logo_Z3.png" alt="Logo Z3 Data" class="logo-img">
         </a>
-        
+
         <div class="mobile-menu-icon" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-        
-        <nav>
+
+        <nav class="nav-menu">
             <ul>
-                <li><a href="#">Soluções</a></li>
-                <li><a href="#">Quem atendemos <span class="arrow-down">▼</span></a></li>
-                <li><a href="#">ZDataLab <span class="arrow-down">▼</span></a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#solutions">Soluções</a></li>
+                <li><a href="#" class="has-dropdown">Quem atendemos <span class="arrow-down">▼</span></a></li>
+                <li><a href="#" class="has-dropdown">ZDataLab <span class="arrow-down">▼</span></a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
+            <a href="#contato" class="btn-create-account">Falar com consultor</a>
         </nav>
-        <a href="#" class="btn-create-account">Falar com consultor</a>
     </header>
 
-    <script>
-    function toggleMenu() {
-        const menu = document.querySelector('.nav-menu');
-        const icon = document.querySelector('.mobile-menu-icon');
-        menu.classList.toggle('active');
-        icon.classList.toggle('open');
-    }
-    </script>
-    
     <main>
+
         <section class="hero">
             <div class="hero-text-group">
                 <h1>Decifrando Dados,<br> <span class="text-highlight">Potencializando Negócios</span></h1>
@@ -76,7 +72,6 @@
             </div>
 
             <div class="audience-grid">
-
                 <div class="glass-card-audience">
                     <div class="icon-glow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -290,6 +285,19 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            const icon = document.querySelector('.mobile-menu-icon');
+            if (menu && icon) {
+                menu.classList.toggle('active');
+                icon.classList.toggle('open');
+            } else {
+                console.warn('Elementos do menu mobile não encontrados no DOM.');
+            }
+        }
+    </script>
 
 </body>
 
