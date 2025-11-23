@@ -73,7 +73,7 @@ body::before {
 .ticker-wrapper {
     width: 100%;
     height: 40px;
-    background-color: var(--accent-dark);
+    background: radial-gradient(circle, #006B47 0%, #004F34 100%);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -92,7 +92,7 @@ body::before {
 .ticker-content {
     color: #ffffff;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding-right: 50px;
