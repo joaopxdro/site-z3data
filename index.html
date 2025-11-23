@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Z3 Data - Decifrando Dados</title>
+    <title>Z3 Data - Data & AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,6 +13,16 @@
 
     <div class="green-glow"></div>
 
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
+            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
+            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
+            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
+            <span>Business Intelligence | Predictive Analytics | AI Automation</span>
+        </div>
+    </div>
+
     <header>
         <a href="#" class="logo-container">
             <img src="assets/logo_Z3.png" alt="Logo Z3 Data" class="logo-img">
@@ -20,16 +30,18 @@
         <nav>
             <ul>
                 <li><a href="#">Soluções</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Quem atendemos <span class="arrow-down">▼</span></a></li>
+                <li><a href="#">ZDataLab <span class="arrow-down">▼</span></a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
+        <a href="#" class="btn-create-account">Falar com consultor</a>
     </header>
 
     <main>
         <section class="hero">
             <div class="hero-text-group">
-                <h1>Decifrando Dados,<br>Potencializando <br><span class="text-highlight">Negócios</span></h1>
+                <h1>Decifrando Dados,<br> <span class="text-highlight">Potencializando Negócios</span></h1>
                 <p>Automação, Inteligência Artificial e Analytics para decisões melhores e mais rápidas.</p>
             </div>
 
@@ -44,15 +56,15 @@
 
         <section class="audience-section">
             <div class="audience-header">
-                <h2>Nossa tecnologia é blindada<br>para escalar sua operação</h2>
+                <h2>Quem Atendemos</h2>
             </div>
 
             <div class="audience-grid">
 
                 <div class="glass-card-audience">
                     <div class="icon-glow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path
                                 d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
                             </path>
@@ -66,22 +78,22 @@
 
                 <div class="glass-card-audience">
                     <div class="icon-glow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="20" x2="18" y2="10"></line>
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
                             <path d="M20.2 20.2 L3.8 3.8"></path>
                         </svg>
                     </div>
-                    <h3>Agências de Marketing</h3>
-                    <p>Dashboards automatizados e atribuição de campanhas para comprovar ROI aos seus clientes.</p>
+                    <h3>Agências & Clínicas</h3>
+                    <p>Dashboards automatizados e atribuição de monitoramento dos seus clientes.</p>
                 </div>
 
                 <div class="glass-card-audience">
                     <div class="icon-glow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="16 18 22 12 16 6"></polyline>
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
@@ -89,7 +101,6 @@
                     <h3>E-commerce & SaaS</h3>
                     <p>Integração total de APIs e previsão de Churn/LTV para vendas recorrentes e escala.</p>
                 </div>
-
             </div>
 
             <div class="audience-action">
@@ -97,8 +108,11 @@
             </div>
         </section>
 
-        <section class="solutions">
-            <h2>Nossas Soluções</h2>
+        <section id="solutions" class="solutions">
+            <div class="solutions-header">
+                <h2>Nossas Soluções</h2>
+            </div>
+
             <div class="solutions-grid">
                 <div class="solution-card">
                     <h3>Business Intelligence</h3>
@@ -117,7 +131,7 @@
 
         <section id="tecnologia" class="tech-section">
             <div class="tech-header">
-                <h2>Stack Tecnológico de Elite</h2>
+                <h2>Nossa tecnologia para escalar sua operação</h2>
                 <p>Dominamos as ferramentas mais modernas para garantir performance e escala.</p>
             </div>
 
@@ -238,7 +252,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="mensagem" rows="4" placeholder="Conte um pouco sobre seu desafio atual..."></textarea>
+                        <textarea id="mensagem" rows="4"
+                            placeholder="Conte um pouco sobre seu desafio atual..."></textarea>
                     </div>
 
                     <button type="submit" class="btn-submit">Solicitar Consultoria</button>
