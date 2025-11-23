@@ -518,6 +518,10 @@ footer {
     color: var(--accent);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* =========================================
    9. MOBILE RESPONSIVO (FINAL E LIMPO)
    ========================================= */
