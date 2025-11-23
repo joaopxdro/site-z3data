@@ -27,6 +27,13 @@
         <a href="#" class="logo-container">
             <img src="assets/logo_Z3.png" alt="Logo Z3 Data" class="logo-img">
         </a>
+        
+        <div class="mobile-menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
         <nav>
             <ul>
                 <li><a href="#">Soluções</a></li>
@@ -38,6 +45,15 @@
         <a href="#" class="btn-create-account">Falar com consultor</a>
     </header>
 
+    <script>
+    function toggleMenu() {
+        const menu = document.querySelector('.nav-menu');
+        const icon = document.querySelector('.mobile-menu-icon');
+        menu.classList.toggle('active');
+        icon.classList.toggle('open');
+    }
+    </script>
+    
     <main>
         <section class="hero">
             <div class="hero-text-group">
