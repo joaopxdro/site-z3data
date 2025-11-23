@@ -2,13 +2,16 @@
    1. VARIÁVEIS GLOBAIS E RESET
    ========================================= */
 :root {
-    --bg-color: #050505; /* Preto Profundo */
-    --grid-line: #1a1a1a; /* Cor da Linha da Grade */
+    --bg-color: #050505;
+    /* Preto Profundo */
+    --grid-line: #1a1a1a;
+    /* Cor da Linha da Grade */
     --text-primary: #ffffff;
     --text-secondary: #888888;
-    --accent: #00ff88; /* Verde Neon/Tech */
-    --accent-glow: rgba(0, 255, 136, 0.2);
-    
+    --accent: #00ff88;
+    /* Verde Neon/Tech */
+    --accent-glow: rgba(0, 58, 31, 0.2);
+
     --card-bg: #0a0a0a;
     --card-border: #222222;
 
@@ -59,7 +62,7 @@ body::before {
     transform: translateX(-50%);
     width: 800px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
     z-index: -1;
     pointer-events: none;
 }
@@ -67,59 +70,151 @@ body::before {
 /* =========================================
    3. CABEÇALHO E NAVEGAÇÃO
    ========================================= */
+.top-bar {
+    background: radial-gradient(circle, #006B47 0%, #004F34 100%);
+    /* Dark Green */
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 0;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    animation: marquee 20s linear infinite;
+    /* Optional: if we want it to scroll */
+}
+
+/* If we want it static centered as per image seems static */
+.top-bar-content {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 8%;
-    width: 100%;
-    box-sizing: border-box; /* Garante que o padding não estoure a tela */
+    padding: 5px 5px;
+    width: 90%;
+    max-width: 1280px;
+    box-sizing: border-box;
+    background-color: rgba(10, 10, 10, 0.95);
+    /* Dark background */
+    backdrop-filter: blur(10px);
+    /* Glass effect */
+    position: sticky;
+    /* Sticky to respect top bar then float */
+    top: 20px;
+    /* Float 20px from top when scrolling */
+    left: 0;
+    /* Sticky doesn't use transform centering the same way if width is 100% or auto */
+    margin: 0 auto;
+    /* Center it */
+    z-index: 1000;
+    border-radius: 50px;
+    /* Pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle border */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+}
+
+/* Remove extra margin from main as sticky keeps it in flow */
+main {
+    margin-top: 40px;
+    /* Just a bit of breathing room */
 }
 
 .logo-container {
     text-decoration: none;
-    opacity: 0.9;
-    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.logo-container:hover { opacity: 1; }
 
+/* A imagem da logo dentro da pílula */
 .logo-img {
-    height: 45px;
+    height: 70px;
+    /* Ajuste a altura conforme necessário */
     width: auto;
     object-fit: contain;
     display: block;
 }
 
+.logo-text::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>');
+    /* Placeholder icon */
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Replacing the placeholder with a simple circle icon or similar to match image roughly */
+.logo-text::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>') no-repeat center;
+    margin-right: 10px;
+    vertical-align: -3px;
+}
+
+
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: center;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: #aaaaaa;
     font-size: 0.95rem;
     transition: color 0.3s;
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 nav a:hover {
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
-/* Botão especial de chamada no menu */
-.nav-cta {
-    color: var(--accent) !important;
-    border: 1px solid var(--accent);
-    padding: 8px 20px;
-    border-radius: 4px;
-    transition: all 0.3s;
+.arrow-down {
+    font-size: 0.7rem;
+    opacity: 0.7;
 }
-.nav-cta:hover {
-    background-color: var(--accent);
-    color: #000 !important;
+
+.btn-create-account {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-create-account:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
 }
 
 /* =========================================
@@ -128,11 +223,12 @@ nav a:hover {
 /* Layout PC - Usando Grid */
 .hero {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    grid-template-columns: 1fr 1fr;
+    /* Duas colunas */
     /* Define áreas para posicionar os elementos */
-    grid-template-areas: 
+    grid-template-areas:
         "text img"
-        "btn img"; 
+        "btn img";
     align-items: center;
     padding: 60px 8%;
     min-height: 75vh;
@@ -148,15 +244,19 @@ nav a:hover {
 .hero-image {
     grid-area: img;
     display: flex;
-    justify-content: flex-end; /* Empurra a imagem para a direita */
+    justify-content: flex-end;
+    /* Empurra a imagem para a direita */
 }
 
 .hero-btn-container {
     grid-area: btn;
     display: flex;
-    justify-content: flex-start; /* Alinha botão à esquerda */
-    align-items: flex-start; /* Cola o botão logo abaixo do texto */
-    margin-top: -40px; /* Puxa o botão um pouco para cima no PC */
+    justify-content: flex-start;
+    /* Alinha botão à esquerda */
+    align-items: flex-start;
+    /* Cola o botão logo abaixo do texto */
+    margin-top: -40px;
+    /* Puxa o botão um pouco para cima no PC */
 }
 
 /* Estilos de Texto e Imagem */
@@ -176,7 +276,8 @@ nav a:hover {
     font-size: 1.2rem;
     max-width: 480px;
     line-height: 1.6;
-    margin-bottom: 0; /* Margem removida pois o grid cuida do espaçamento */
+    margin-bottom: 0;
+    /* Margem removida pois o grid cuida do espaçamento */
 }
 
 .hero-graph-img {
@@ -191,7 +292,7 @@ nav a:hover {
 /* Botão de Chamada Hero */
 .btn-hero {
     display: inline-block;
-    background-color: #222;
+    background: radial-gradient(circle, #006B47 0%, #004F34 100%);
     color: var(--text-primary);
     padding: 15px 35px;
     border-radius: 50px;
@@ -204,8 +305,8 @@ nav a:hover {
 
 .btn-hero:hover {
     background-color: #000;
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: #000;
+    color: #000;
     box-shadow: 0 0 15px var(--accent-glow);
 }
 
@@ -224,9 +325,62 @@ nav a:hover {
     margin-bottom: 60px;
 }
 
+/* O Grid que coloca os blocos lado a lado */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* O Visual do Bloco (Card) */
+.solution-card {
+    background: rgba(255, 255, 255, 0.03);
+    /* Fundo levemente mais claro que o preto */
+    border: 1px solid #333;
+    /* Borda cinza sutil */
+    border-radius: 16px;
+    /* Cantos arredondados */
+    padding: 40px 30px;
+    text-align: left;
+    /* Texto alinhado à esquerda dentro do bloco */
+    transition: all 0.3s ease;
+    height: 100%;
+    /* Garante que todos tenham a mesma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Efeito ao passar o mouse */
+.solution-card:hover {
+    transform: translateY(-5px);
+    /* Sobe um pouquinho */
+    border-color: var(--accent);
+    /* Borda fica verde */
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.solution-card h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.solution-card p {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+}
+
 .audience-section {
     padding: 100px 8%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), #080808);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #080808);
     text-align: center;
 }
 
@@ -248,8 +402,10 @@ nav a:hover {
 
 /* Card Estilo Vidro/Tech */
 .glass-card-audience {
-    background: rgba(255, 255, 255, 0.03); /* Fundo muito sutil */
-    border: 1px solid #333; /* Borda fina e discreta */
+    background: rgba(255, 255, 255, 0.03);
+    /* Fundo muito sutil */
+    border: 1px solid #333;
+    /* Borda fina e discreta */
     border-radius: 16px;
     padding: 40px 30px;
     text-align: left;
@@ -263,22 +419,25 @@ nav a:hover {
 /* Efeito Hover no Card */
 .glass-card-audience:hover {
     transform: translateY(-5px);
-    border-color: var(--accent); /* Borda fica verde no hover */
-    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.05); /* Sombra verde sutil */
+    border-color: var(--accent);
+    /* Borda fica verde no hover */
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.05);
+    /* Sombra verde sutil */
     background: rgba(255, 255, 255, 0.05);
 }
 
 /* Ícones Neon */
 .icon-glow {
     margin-bottom: 25px;
-    color: var(--accent); /* Cor verde do SVG */
+    color: #006B47;
+    /* Cor verde do SVG */
     width: 60px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     /* Sombra projetada no SVG para criar efeito neon */
-    filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.6));
+    filter: drop-shadow(0 0 8px #006B47);
 }
 
 .icon-glow svg {
@@ -295,18 +454,22 @@ nav a:hover {
 }
 
 .glass-card-audience p {
-    color: #888; /* Cinza para descrição */
+    color: #888;
+    /* Cinza para descrição */
     font-size: 1rem;
     line-height: 1.6;
 }
 
 /* Botão Pílula (Branco/Cinza Claro) */
-.audience-action { margin-top: 20px; }
+.audience-action {
+    margin-top: 20px;
+}
 
 .btn-pill {
     display: inline-block;
-    background-color: #e0e0e0; /* Fundo claro como na imagem */
-    color: #000;
+    background-color: #006B47;
+    /* Fundo claro como na imagem */
+    color: #fff;
     padding: 12px 40px;
     border-radius: 50px;
     text-decoration: none;
@@ -318,12 +481,12 @@ nav a:hover {
 }
 
 .btn-pill:hover {
-    background-color: #fff;
+    background-color: #006B47;
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
-    background-color: var(--accent);
+    background-color: #006B47;
     color: #000;
-    border-color: var(--accent);
+    border-color: #006B47;
     box-shadow: 0 0 20px var(--accent-glow);
 }
 
@@ -344,7 +507,7 @@ nav a:hover {
 }
 
 .tech-header p {
-    color: var(--text-secondary);
+    color: #006B47;
     margin-bottom: 50px;
 }
 
@@ -385,9 +548,9 @@ nav a:hover {
 }
 
 .tech-card:hover .tech-icon {
-    color: var(--accent);
+    color: #006B47;
     /* Verde no hover */
-    filter: drop-shadow(0 0 5px var(--accent-glow));
+    filter: drop-shadow(0 0 5px #006B47);
 }
 
 .tech-card span {
@@ -461,8 +624,8 @@ textarea:focus {
 }
 
 .btn-submit {
-    background-color: var(--accent);
-    color: #000;
+    background-color: #006B47;
+    color: #fff;
     border: none;
     padding: 16px;
     font-size: 1rem;
@@ -474,7 +637,7 @@ textarea:focus {
 }
 
 .btn-submit:hover {
-    background-color: #00cc6a;
+    background-color: #006B47;
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
 }
 
@@ -515,95 +678,110 @@ footer {
 }
 
 .social-links a:hover {
-    color: var(--accent);
+    color: #006B47;
 }
 
 /* =========================================
    9. ESTILOS RESPONSIVOS MOBILE
    ========================================= */
 @media (max-width: 768px) {
-    
+
     /* --- AJUSTES DO CABEÇALHO --- */
     /* Força logo e menu na mesma linha */
     header {
-        flex-direction: row !important; /* Previne empilhamento */
+        flex-direction: row !important;
+        /* Previne empilhamento */
         justify-content: space-between;
         align-items: center;
-        padding: 15px 5%; /* Menos padding nas bordas */
+        padding: 15px 5%;
+        /* Menos padding nas bordas */
     }
 
     .logo-container {
-        flex-shrink: 0; /* Previne que a logo amasse */
+        flex-shrink: 0;
+        /* Previne que a logo amasse */
         display: block;
     }
-    
+
     /* AUMENTAR LOGO AQUI */
     .logo-img {
-        height: 60px !important; /* Visibilidade aumentada */
+        height: 60px !important;
+        /* Visibilidade aumentada */
         width: auto;
     }
 
     /* Correção do Menu (Remove bolinhas e cor azul) */
     nav ul {
         display: flex;
-        flex-direction: row !important; /* Força layout horizontal */
-        gap: 15px; /* Espaço entre links */
-        margin: -10px; /* Reseta margens */
-        padding: -20px; /* Reseta padding */
-        list-style: none; /* Remove marcadores */
+        flex-direction: row !important;
+        /* Força layout horizontal */
+        gap: 15px;
+        /* Espaço entre links */
+        margin: -10px;
+        /* Reseta margens */
+        padding: -20px;
+        /* Reseta padding */
+        list-style: none;
+        /* Remove marcadores */
     }
 
     nav li {
-        margin: 0; /* Garante sem margem extra */
+        margin: 0;
+        /* Garante sem margem extra */
     }
 
     nav a {
-        font-size: 0.85rem; 
-        color: #cccccc !important; /* Remove azul/roxo padrão */
+        font-size: 0.85rem;
+        color: #cccccc !important;
+        /* Remove azul/roxo padrão */
         text-decoration: none;
         white-space: nowrap;
     }
-    
+
     /* Esconde botão "Falar Agora" no mobile para prevenir cliques acidentais */
     .nav-cta {
-        display: none; 
+        display: none;
     }
 
     /* --- AJUSTES SEÇÃO HERO --- */
     /* Ordem Correta: Texto > Imagem > Botão */
     .hero {
-        display: flex; /* Troca de Grid para Flex */
-        flex-direction: column; /* Empilha verticalmente */
+        display: flex;
+        /* Troca de Grid para Flex */
+        flex-direction: column;
+        /* Empilha verticalmente */
         padding: 40px 5%;
         text-align: left;
         gap: 30px;
     }
 
     /* Como mudamos o HTML, o fluxo natural é Texto > Imagem > Botão */
-    
+
     .hero-text-group {
         width: 100%;
         margin-bottom: 0;
     }
-    
+
     .hero h1 {
-        font-size: 2.4rem; /* Tamanho do título ajustado */
+        font-size: 2.4rem;
+        /* Tamanho do título ajustado */
         line-height: 1.1;
     }
 
     .hero p {
         font-size: 1rem;
     }
-    
+
     /* Centraliza Imagem */
     .hero-image {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin: 10px 0; /* Espaço acima/abaixo da imagem */
+        margin: 10px 0;
+        /* Espaço acima/abaixo da imagem */
         min-width: 150px;
     }
-    
+
     .hero-graph-img {
         max-width: 100%;
         height: auto;
@@ -614,27 +792,33 @@ footer {
     .hero-btn-container {
         width: 100%;
         display: flex;
-        justify-content: center; /* Centraliza botão no mobile */
+        justify-content: center;
+        /* Centraliza botão no mobile */
         margin-top: 10px;
     }
-    
+
     .btn-hero {
         display: inline-block;
-        background-color: #222 !important; /* Força fundo escuro */
-        color: #ffffff !important; /* Força texto branco */
+        background-color: #222 !important;
+        /* Força fundo escuro */
+        color: #ffffff !important;
+        /* Força texto branco */
         padding: 16px 40px;
         border-radius: 50px;
         text-decoration: none;
         font-weight: 600;
         border: 1px solid #333;
         font-size: 1rem;
-        width: 100%; /* Botão largura total no mobile */
+        width: 100%;
+        /* Botão largura total no mobile */
         text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
-    
+
     /* --- ESPAÇAMENTO GERAL DAS SEÇÕES --- */
-    .audience-section, .tech-section, .contact-section {
+    .audience-section,
+    .tech-section,
+    .contact-section {
         padding: 60px 5%;
     }
 
@@ -643,7 +827,8 @@ footer {
     }
 
     .glass-card-audience {
-        align-items: center; /* Centraliza no mobile */
+        align-items: center;
+        /* Centraliza no mobile */
         text-align: center;
     }
 }
